@@ -1,25 +1,30 @@
+# This is a sample playbook to install Nginx and Docker on an EC2 instance
 -
   name: Install Nginx and Docker
-  hosts: your_ec2_instance
+  hosts: your_ec2_instance   # Target instances
   become: true
 
   tasks:
+    # This will insatll Nginx on the target instance
     - name: Install Nginx
       apt:
         name: nginx
         state: latest
 
+    # This will start the Nginx service on the target instance
     - name: Start Nginx service
       service:
         name: nginx
         state: started
         enabled: yes
 
+    # This will insatll Docker on the target instance
     - name: Install Docker
       apt:
         name: docker.io
         state: latest
 
+    # This will start the Docker service on the target instance
     - name: Start Docker service
       service:
         name: docker
