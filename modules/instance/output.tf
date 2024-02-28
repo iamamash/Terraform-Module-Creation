@@ -19,3 +19,8 @@ output "public_instance_id" {
   description = "Value of public instance id"
   value       = aws_instance.public_instance.*.id
 }
+
+# Output the Elastic IP
+output "elastic_ip" {
+  value = aws_eip.eip.public_ip
+}

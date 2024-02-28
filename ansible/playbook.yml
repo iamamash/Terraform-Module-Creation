@@ -1,7 +1,9 @@
 # This is a sample playbook to install Nginx and Docker on an EC2 instance
 -
   name: Install Nginx and Docker
-  hosts: your_ec2_instance   # Target instances
+  hosts: # Target Instances's Elastic IPs
+    - {{ elastic_ip_1 }}
+    - {{ elastic_ip_2 }} 
   become: true
 
   tasks:
