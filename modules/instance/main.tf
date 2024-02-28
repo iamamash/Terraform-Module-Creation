@@ -86,7 +86,7 @@ resource "aws_instance" "private_instance" {
     connection {
       type        = "ssh"
       user        = "ubuntu"
-      private_key = file("~/.ssh/id_rsa")
+      private_key = "${file("~/.ssh/id_rsa")}"
       host        = aws_instance.private_instance[count.index].public_ip
     }
 
