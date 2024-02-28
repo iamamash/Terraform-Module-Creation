@@ -14,11 +14,11 @@ This is a simple project to demonstrate the use of modules in Terraform.
 - Terraform should be installed on the local machine.
 - AWS account.
 
-### Fork the repo
-### Clone the project
+### 1. Fork the repo
+### 2. Clone the project
 `git clone https://github.com/iamamash/Terraform-Module-Creation.git`
 
-### AWS CLI Setup
+### 3. AWS CLI Setup
 ```
 $ aws configure
 <give-access-key-id>
@@ -27,7 +27,7 @@ press enter
 press enter
 ```
 
-### Run the project
+### 4. Run the project
 ```
 terraform init
 terraform validate
