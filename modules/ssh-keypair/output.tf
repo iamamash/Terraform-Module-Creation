@@ -7,7 +7,7 @@ output "public_key" {
 # Output the private key in PEM format
 output "private_key" {
   description = "The private key for the SSH keypair"
-  value       = tls_private_key.ssh_keypair.private_key_pem 
+  value       = tls_private_key.ssh_keypair.private_key_pem
 }
 
 # Output the key pair name

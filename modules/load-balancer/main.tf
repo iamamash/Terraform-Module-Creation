@@ -23,9 +23,11 @@ resource "aws_lb_target_group" "target-group" {
 resource "aws_lb" "alb" {
   name               = var.lb_name # Name of the Application Load Balancer
   internal           = false
-  load_balancer_type = var.lb_type                                                        # Type of the Application Load Balancer
-  security_groups    = [module.EC2_INSTANCE.private_security_group_id]                    # Security group for the Application Load Balancer 
-  subnets            = [module.VPC.private_subnet_id[0], module.VPC.private_subnet_id[1]] # Subnets for the Application Load Balancer
+  load_balancer_type = var.lb_type # Type of the Application Load Balancer
+
+  security_groups = [module.EC2_INSTANCE.private_security_group_id] # Security group for the Application Load Balancer 
+
+  subnets = [module.VPC.private_subnet_id[0], module.VPC.private_subnet_id[1]] # Subnets for the Application Load Balancer
 }
 
 # Creating the listener for the Application Load Balancer
@@ -66,4 +68,11 @@ module "EC2_INSTANCE" {
   source        = "../instance/"          # Path to the EC2 instance module directory
   ami           = "ami-0440d3b780d96b29d" # AMI for the EC2 instance
   instance_type = "t2.micro"              # Type of the EC2 instance
+}
+
+# Module for Load Balancer
+module "LOAD_BALANCER" {
+  source  = "./load-balancer/" # Path to the Load Balancer module directory
+  lb_name = "alb"              # Name of the load balancer
+  lb_type = "application"      # Type of the load balancer
 }

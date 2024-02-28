@@ -1,4 +1,7 @@
-.terraform.lock.hcl
-.terraform/
+.terraform
+.gitignore
 terraform.tfstate
 terraform.tfstate.backup
+plan
+path
+.terraform.lock.hcl

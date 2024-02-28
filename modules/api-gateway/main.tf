@@ -44,15 +44,8 @@ resource "aws_api_gateway_deployment" "api_gateway_deployment" {
 
 
 # ----------------------------------------------------------------------------
-# Module for Load Balancer
-module "LOAD_BALANCER" {
-  source  = "../load-balancer/" # Path to the Load Balancer module directory
-  lb_name = "alb"               # Name of the load balancer
-  lb_type = "application"       # Type of the load balancer
-}
-
 # Module for API Gateway
 module "API_GATEWAY" {
-  source           = "./modules/api-gateway/" # Path to the API Gateway module directory
-  api_gateway_name = "api-gateway"            # Name of the API Gateway
+  source           = "./api-gateway/" # Path to the API Gateway module directory
+  api_gateway_name = "api-gateway"    # Name of the API Gateway
 }
