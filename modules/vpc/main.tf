@@ -28,10 +28,10 @@ resource "aws_subnet" "public_subnet" {
 resource "aws_subnet" "private_subnet" {
   count             = 2 # Creates two private subnets
   vpc_id            = aws_vpc.vpc.id
-  cidr_block        = var.private_subnet_cidr[count.index]         # CIDR block for the public subnet
-  availability_zone = element(var.availability_zones, count.index) # Availability zone for the public subnet
+  cidr_block        = var.private_subnet_cidr[count.index]         # CIDR block for the private subnet
+  availability_zone = element(var.availability_zones, count.index) # Availability zone for the private subnet
 
   tags = {
-    Name = "${var.vpc_name}-private-subnet-${count.index + 1}" # Name of the public subnet
+    Name = "${var.vpc_name}-private-subnet-${count.index + 1}" # Name of the private subnet
   }
 }
