@@ -11,13 +11,13 @@ output "private_security_group_id" {
 # Output the instance id of private instance
 output "private_instance_id" {
   description = "Value of private instance id"
-  value       = aws_instance.private_instance.*.id
+  value       = aws_instance.private_instance[*].id
 }
 
 # Output the instance id of public instance
 output "public_instance_id" {
   description = "Value of public instance id"
-  value       = aws_instance.public_instance.*.id
+  value       = aws_instance.public_instance[*].id
 }
 
 # Output the Elastic IP
